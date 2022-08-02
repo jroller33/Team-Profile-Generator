@@ -1,0 +1,38 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Creates HTML Team Profile from User Input from Inquirer",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jroller33/Team-Profile-Generator.git"
+  },
+  "keywords": [
+    "oop",
+    "cli",
+    "html",
+    "css",
+    "javascript",
+    "filesystem",
+    "node",
+    "node.js"
+  ],
+  "author": "John Roller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jroller33/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/jroller33/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
