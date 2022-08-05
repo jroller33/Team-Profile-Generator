@@ -71,16 +71,16 @@ const engineerQuestions = [
 function addEngineer() {
     inquirer.prompt(engineerQuestions).then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub)
-    employees.push(engineer);
-    menu();
+        employees.push(engineer);
+        menu();
     })
 };
 
 const internQuestions = [
     {
-    type: 'input',
-    name: 'internName',
-    message: "What is the intern's name?",
+        type: 'input',
+        name: 'internName',
+        message: "What is the intern's name?",
     },
     {
         type: 'input',
@@ -103,21 +103,58 @@ const internQuestions = [
 function addIntern() {
     inquirer.prompt(internQuestions).then(response => {
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
-    employees.push(intern);
-    menu();
+        employees.push(intern);
+        menu();
     })
 };
 
 function finishTeam() {
-    console.log(employees);     // the array returned from this is used for the html cards
-};
+    for (let i of employees) {
+        console.log(i)
+        if (i === i.Engineer) {
+            console.log('engineer: ', i);
+        } else if (i === i.Intern) {
+            console.log('intern: ', i);
+        } else if (i === i.Manager) {
+            console.log('manager: ', i);
+        } else {
+            console.log('error \n');
+        }
+    };
+}
+
+
+
 
 const init = () => {
     inquirer.prompt(managerQuestions).then(response => {
         const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
-    employees.push(manager);
-    menu();
+        employees.push(manager);
+        menu();
+
+        
+        // const htmlPageContent = generateHtml(employees);
+
+        // fs.writeFile('index.html', htmlPageContent, (err) =>
+        //     err ? console.log(err) : console.log('Successfully created index.html')
+        // );
+
     })
-  };
-  
-  init();
+};
+init();
+//   const init = () => {
+//     inquirer.prompt(managerQuestions).then(response => {
+//         const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
+//     employees.push(manager);
+//     menu();
+//     })
+//   };
+
+// .then((answers) => {
+//     const htmlPageContent = generateHTML(answers);
+
+//     fs.writeFile('index.html', htmlPageContent, (err) =>
+//       err ? console.log(err) : console.log('Successfully created index.html!')
+//     );
+//   });
+
