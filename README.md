@@ -1,7 +1,7 @@
   # Team Profile Generator
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   ## Description
-  🚧This app is under development🚧, but will be deployed in a few days (it's due this week). Check back soon 👍
+  🚧This app is under development🚧
   
   This is a Node.js CLI application that uses `inquirer` to receive input about employees and generate an HTML page that shows summaries for each person. This repo comes complete with unit tests (using `jest`) for each class. 
 
