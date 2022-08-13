@@ -9,7 +9,7 @@ const employees = []; // constructors are pushed in this array
 
 function initHTML() {
     const html = `
-        html
+        base html template that cards are added onto
     `;
 }
 function init() {
@@ -129,18 +129,18 @@ function finishTeam() {
 //    console.log(employees);
     for (let i of employees) {
         if (i.getRole() === "Manager") {
-            console.log(i);
-            console.log("there's a manager");
+            // console.log(i);
+            // console.log("there's a manager");
             addToContainer(i);
         }
         else if (i.getRole() === "Engineer") {
-            console.log(i);
-            console.log("ingineer");
+            // console.log(i);
+            // console.log("ingineer");
             addToContainer(i);
         }
         else if (i.getRole() === "Intern") {
-            console.log(i);
-            console.log("inturn");
+            // console.log(i);
+            // console.log("inturn");
             addToContainer(i);
         }
         else {
@@ -149,7 +149,13 @@ function finishTeam() {
     }
 }
 
+function addToContainer(teamMember) {
+    console.log(teamMember); // working. getting the correct teamMember objects from for loop printed to screen ('i' in for loop = teamMember in addToContainer) 
+
+}
+
 init();
+
 //   const init = () => {
 //     inquirer.prompt(managerQuestions).then(response => {
 //         const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
@@ -157,10 +163,8 @@ init();
 //     menu();
 //     })
 //   };
-
 // .then((answers) => {
 //     const htmlPageContent = generateHTML(answers);
-
 //     fs.writeFile('index.html', htmlPageContent, (err) =>
 //       err ? console.log(err) : console.log('Successfully created index.html!')
 //     );
