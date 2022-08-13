@@ -7,6 +7,28 @@ const fs = require('fs');
 const employees = []; // constructors are pushed in this array
 // html cards will be generated using this array of constructors
 
+function initHTML() {
+    const html = `
+        html
+    `;
+}
+function init() {
+    initHTML()
+    addTeamMember();
+    
+}
+const addTeamMember = () => {
+    inquirer.prompt(managerQuestions).then(response => {
+        const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
+        employees.push(manager);
+        menu();
+        // const htmlPageContent = generateHtml(employees);
+        // fs.writeFile('index.html', htmlPageContent, (err) =>
+        //     err ? console.log(err) : console.log('Successfully created index.html')
+        // );
+
+    })
+};
 const managerQuestions = [
     {
         type: 'input',
@@ -67,7 +89,6 @@ const engineerQuestions = [
         message: "What is the engineer's GitHub username?",
     },
 ];
-
 function addEngineer() {
     inquirer.prompt(engineerQuestions).then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub)
@@ -75,7 +96,6 @@ function addEngineer() {
         menu();
     })
 };
-
 const internQuestions = [
     {
         type: 'input',
@@ -98,8 +118,6 @@ const internQuestions = [
         message: "What is the intern's school?",
     },
 ];
-
-
 function addIntern() {
     inquirer.prompt(internQuestions).then(response => {
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
@@ -107,40 +125,30 @@ function addIntern() {
         menu();
     })
 };
-
 function finishTeam() {
+//    console.log(employees);
     for (let i of employees) {
-        console.log(i)
-        if (i === i.Engineer) {
-            console.log('engineer: ', i);
-        } else if (i === i.Intern) {
-            console.log('intern: ', i);
-        } else if (i === i.Manager) {
-            console.log('manager: ', i);
-        } else {
-            console.log('error \n');
+        if (i.getRole() === "Manager") {
+            console.log(i);
+            console.log("there's a manager");
+            addToContainer(i);
         }
-    };
+        else if (i.getRole() === "Engineer") {
+            console.log(i);
+            console.log("ingineer");
+            addToContainer(i);
+        }
+        else if (i.getRole() === "Intern") {
+            console.log(i);
+            console.log("inturn");
+            addToContainer(i);
+        }
+        else {
+            console.log("nope");
+        }
+    }
 }
 
-
-
-
-const init = () => {
-    inquirer.prompt(managerQuestions).then(response => {
-        const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
-        employees.push(manager);
-        menu();
-
-        
-        // const htmlPageContent = generateHtml(employees);
-
-        // fs.writeFile('index.html', htmlPageContent, (err) =>
-        //     err ? console.log(err) : console.log('Successfully created index.html')
-        // );
-
-    })
-};
 init();
 //   const init = () => {
 //     inquirer.prompt(managerQuestions).then(response => {
