@@ -150,7 +150,39 @@ function finishTeam() {
 }
 
 function addToContainer(teamMember) {
-    console.log(teamMember); // working. getting the correct teamMember objects from for loop printed to screen ('i' in for loop = teamMember in addToContainer) 
+    console.log(teamMember); // working. ('i' in for loop = teamMember in addToContainer) 
+
+    return new Promise(function (resolve, reject) {
+        const name = teamMember.getName();
+        const role = teamMember.getRole();
+        const id = teamMember.getId();
+        const email = teamMember.getEmail();
+        let data = "";
+        if (role === "Manager") {
+            const officeNumber = teamMember.officeNumber;
+            data = `
+            
+            `
+        } else if (role === "Engineer") {
+            const gitHub = teamMember.github;
+            data = `
+            
+            `
+        } else {
+            const school = teamMember.school;
+            data = `
+            
+            `
+        }
+        console.log("Team Member was added!");
+        fs.appendFile("./dist/projectTeamProfile.html", data, function(err) {
+            if (err) {
+                return reject(err);
+            };
+            return resolve();
+        });
+    });
+
 
 }
 
