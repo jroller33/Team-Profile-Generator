@@ -7,6 +7,12 @@ const fs = require('fs');
 const employees = []; // constructors are pushed in this array
 // html cards will be generated using this array of constructors
 
+function init() {
+    initHTML()
+    addTeamMember();
+    
+}
+
 function initHTML() {
     const html = `<!DOCTYPE html>
     <html lang="en">
@@ -27,11 +33,6 @@ function initHTML() {
             console.log(err);
         }
     });
-}
-function init() {
-    initHTML()
-    addTeamMember();
-    
 }
 const addTeamMember = () => {
     inquirer.prompt(managerQuestions).then(response => {
@@ -141,7 +142,7 @@ function addIntern() {
         menu();
     })
 };
-function finishTeam() {             // not sure if this is needed fr but i'll leave it for now.
+function finishTeam() { // not sure if this is needed fr but i'll leave it for now.
 //    console.log(employees);
     for (let i of employees) {
         if (i.getRole() === "Manager") {
@@ -161,9 +162,8 @@ function finishTeam() {             // not sure if this is needed fr but i'll le
         }
     }
 }
-
 function addToContainer(teamMember) {
-    console.log(teamMember); // working. ('i' in for loop = teamMember in addToContainer) 
+ //   console.log(teamMember.github); // working. ('i' in for loop = teamMember in addToContainer) 
 
     return new Promise(function (resolve, reject) {
         const name = teamMember.getName();
@@ -174,13 +174,31 @@ function addToContainer(teamMember) {
         if (role === "Manager") {
             const officeNumber = teamMember.officeNumber;
             data = `
-            
-            `
+            <div class="justify-evenly">
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-blue-600 bg-cover px-19 text-white rounded-lg">${name}<br/>
+                ${role}</h5>
+                        <ul class="text-gray-700 text-base mb-4">
+                        <li>ID # ${id}</li>
+                        <li>Email: ${email}</li>
+                        <li>Office Number: ${officeNumber}</li>
+                        </ul>
+                    </div>
+                </div>`
         } else if (role === "Engineer") {
             const gitHub = teamMember.github;
             data = `
-            
-            `
+            <div class="justify-evenly">
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-blue-600 bg-cover px-19 text-white rounded-lg">${name}<br/>
+                ${role}</h5>
+                        <ul class="text-gray-700 text-base mb-4">
+                        <li>ID # ${id}</li>
+                        <li>Email: ${email}</li>
+                        <li>GitHub: ${gitHub}</li>
+                        </ul>
+                    </div>
+                </div>`
         } else {
             const school = teamMember.school;
             data = `
@@ -195,9 +213,7 @@ function addToContainer(teamMember) {
             return resolve();
         });
     });
-
-
-}
+ }
 
 init();
 
