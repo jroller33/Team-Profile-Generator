@@ -8,9 +8,25 @@ const employees = []; // constructors are pushed in this array
 // html cards will be generated using this array of constructors
 
 function initHTML() {
-    const html = `
-        base html template that cards are added onto
+    const html = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Example HTML</title>
+    </head>
+    <body>
+        <nav class="flex justify-center mx-auto py-10 bg-red-600 text-white text-5xl ">My Team</nav>
+
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:gird-cols-3 xl:grid-cols-4">
     `;
+    fs.writeFile("./dist/projectTeamProfile.html", html, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
 }
 function init() {
     initHTML()
@@ -125,22 +141,19 @@ function addIntern() {
         menu();
     })
 };
-function finishTeam() {
+function finishTeam() {             // not sure if this is needed fr but i'll leave it for now.
 //    console.log(employees);
     for (let i of employees) {
         if (i.getRole() === "Manager") {
             // console.log(i);
-            // console.log("there's a manager");
             addToContainer(i);
         }
         else if (i.getRole() === "Engineer") {
             // console.log(i);
-            // console.log("ingineer");
             addToContainer(i);
         }
         else if (i.getRole() === "Intern") {
             // console.log(i);
-            // console.log("inturn");
             addToContainer(i);
         }
         else {
