@@ -5,6 +5,7 @@ package-lock.json
 comments.txt
 testingIndex.js
 IGNORE
+.env
 
 
 

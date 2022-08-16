@@ -88,7 +88,6 @@ function initHTML() {
     </head>
     <body>
     <nav class="flex justify-center mx-auto py-10 bg-red-600 text-white text-5xl ">My Team</nav>
-
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:gird-cols-3 xl:grid-cols-4">
     `;
     fs.writeFile("./dist/projectTeamProfile.html", html, function(err) {
@@ -142,7 +141,6 @@ function finishTeam() {
     completeFile();
 }
 function addToContainer(teamMember) {
- //   console.log(teamMember.github); // working. (i in for loop=teamMember) 
     return new Promise(function (resolve, reject) {
         const name = teamMember.getName();
         const role = teamMember.getRole();
@@ -200,7 +198,7 @@ function addToContainer(teamMember) {
             return resolve();
         });
     });
- }
+}
 function completeFile() {
     const finish = `</div>
     </body>
