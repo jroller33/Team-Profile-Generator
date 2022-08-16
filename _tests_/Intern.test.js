@@ -1,28 +1,27 @@
-const Engineer = require("../lib/Engineer")
+const Intern = require("../lib/Intern")
 
-it("Set Github username", () => {
-    const test = "jroller";
-    const employee = new Engineer("John", 4567, "John@gmail.com", test);
-    expect(employee.getGithub()).toBe(test);
+it("Set school", () => {
+    const test = "school";
+    const employee = new Intern("John", 4567, "John@gmail.com", test);
+    expect(employee.getSchool()).toBe(test);
 });
 
-describe('getRole', () => {
-    it('returns Engineer', () => {
-        const engineer = new Engineer("John", 4567, "John@gmail.com", "jroller");
-        
-        engineer.getRole();
-        expect(engineer.getRole()).toBe("Engineer");
+describe("getRole", () => {
+    it("returns Intern", () => {
+        const intern = new Intern("John", 4567, "John@gmail.com", "school");
+        intern.getRole();
+        expect(intern.getRole()).toBe("Intern");
     });
 });
 
 it("gets name", () => {
     const test = "John";
-    const employee = new Engineer(test, 4567, "John@gmail.com", "jroller");
+    const employee = new Intern(test, 4567, "John@gmail.com", "school");
     expect(employee.name.toBe(test));
 });
 
 it("gets id", () => {
     const test = "1234";
-    const employee = new Engineer("John", test, "John@gmail.com", "jroller");
+    const employee = new Intern("John", test, "John@gmail.com", "school");
     expect(employee.id.toBe(test));
 });

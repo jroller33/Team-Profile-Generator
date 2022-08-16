@@ -6,8 +6,8 @@ it("Set Github username", () => {
     expect(employee.getGithub()).toBe(test);
 });
 
-describe('getRole', () => {
-    it('returns Engineer', () => {
+describe("getRole", () => {
+    it("returns Engineer", () => {
         const engineer = new Engineer("John", 4567, "John@gmail.com", "jroller");
         engineer.getRole();
         expect(engineer.getRole()).toBe("Engineer");
