@@ -17,11 +17,11 @@ describe("getRole", () => {
 it("gets name", () => {
     const test = "John";
     const employee = new Engineer(test, 4567, "John@gmail.com", "jroller");
-    expect(employee.name.toBe(test));
+    expect(employee.name).toBe(test);
 });
 
 it("gets id", () => {
     const test = "1234";
     const employee = new Engineer("John", test, "John@gmail.com", "jroller");
-    expect(employee.id.toBe(test));
+    expect(employee.id).toBe(test);
 });
