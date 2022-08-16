@@ -14,10 +14,10 @@ describe("getRole", () => {
     });
 });
 
-it("gets name", () => {
+it("gets name", () => { 
     const test = "John";
     const employee = new Manager(test, 4567, "John@gmail.com", "jroller");
-    expect(employee.name.toBe(test));
+    expect(employee.name.toBe(test));   // typeError employee.name.toBe isn't a fn
 });
 
 it("gets id", () => {
