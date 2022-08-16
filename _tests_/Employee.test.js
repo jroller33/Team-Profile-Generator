@@ -5,43 +5,42 @@ describe("Employee", () => {
         const employee = new Employee();
         expect(typeof(employee)).toBe("object")
     });
+
     it("Can make name to equal constructor argument", () => {
-        const name = "Jon";
+        const name = "John";
         const employee = new Employee(name);
         expect (employee.name).toBe(name);
     });
-    it("Can make ID to equal constructor argument", () => {
-        const test = 456;
-        const employee = new Employee("John", test);
-        expect (employee.id).toBe(test);
-    });
-    it("Can make ID to equal constructor argument", () => {
-        const test = "john@gmail.com";
-        const employee = new Employee("John", 456, test);
-        expect (employee.email).toBe(test);
-    });
-    describe("employeeName", () => {
-        it("render name from employeeName()", () => {
+    
+    describe("getName", () => {
+        it("render name from getName()", () => {
             const test = "John";
             const employee = new Employee(test);
-            expect(employee.employeeName()).toBe(test);
+            expect(employee.getName()).toBe(test);
         });
     });
-    describe("employeeId", () => {
-        it("render id from employeeId", () => {
+
+    describe("getId", () => {
+        it("render id from getId", () => {
             const test = 456;
-            const employee = new Employee("John", test);
-            expect(employee.employeeId()).toBe(test);
+            const employee = new Employee("John", test);    // does this need 3rd arg in ()?
+            expect(employee.getId()).toBe(test);
         });
     });
-    describe("employeeEmail", () => {
-        it("render id from employeeEmail", () => {
+
+    describe("getEmail", () => {
+        it("render email from getEmail", () => {
             const test = "john@gmail.com";
             const employee = new Employee("John", 456, test);
-            expect(employee.employeeEmail()).toBe(test);
+            expect(employee.getEmail()).toBe(test);
         });
     });
-    
 
-
-})
+    describe("getRole", () => {
+        it("returns Employee", () => {
+            const employee = new Employee("John", 4567, "John@gmail.com", 12);
+            employee.getRole();
+            expect(employee.getRole()).toBe("Employee");
+        });
+    });
+});
