@@ -1,7 +1,9 @@
 # Team Profile Generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ## Description
-🚧Under development🚧
+
+### 🚧 Under development 🚧
+[kanban link](https://github.com/users/jroller33/projects/3)
 
 This is a Node.js CLI application that uses `inquirer` to receive input about employees and generate an HTML page that shows summaries for each person. There's unit tests (using `jest`) for each class. 
 

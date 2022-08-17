@@ -75,7 +75,7 @@ const internQuestions = [
 function init() {
     initHTML()
     addManager();
-}
+};
 
 function initHTML() {
     const html = `<!DOCTYPE html>
@@ -96,7 +96,7 @@ function initHTML() {
             console.log(err);
         }
     });
-}
+};
 
 const addManager = () => {
     inquirer.prompt(managerQuestions).then(response => {
@@ -194,7 +194,7 @@ function generateHTML(teamMember) {
             return resolve();
         });
     });
-}
+};
 
 function endHTML() {
     const finish = `</div>
@@ -206,5 +206,5 @@ function endHTML() {
             console.log(err);
         }
     });
-}
+};
 init();
