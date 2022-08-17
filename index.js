@@ -4,8 +4,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const fs = require('fs');
 
-const employees = []; // constructors are pushed in this array
-// html cards will be generated using this array of constructors
+const employees = []; // objects pushed to this array & html cards generated from it
 const managerQuestions = [
     {
         type: 'input',
@@ -72,10 +71,12 @@ const internQuestions = [
         message: "What is the intern's school?",
     },
 ];
+
 function init() {
     initHTML()
-    addTeamMember();
+    addManager();
 }
+
 function initHTML() {
     const html = `<!DOCTYPE html>
     <html lang="en">
@@ -90,13 +91,22 @@ function initHTML() {
     <nav class="flex justify-center mx-auto py-10 bg-red-600 text-white text-5xl ">My Team</nav>
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:gird-cols-3 xl:grid-cols-4">
     `;
-    fs.writeFile("./dist/projectTeamProfile.html", html, function(err) {
+    fs.writeFile("./dist/projectTeamProfile.html", html, function (err) {
         if (err) {
             console.log(err);
         }
     });
 }
-function menu() {
+
+const addManager = () => {
+    inquirer.prompt(managerQuestions).then(response => {
+        const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
+        employees.push(manager);
+        menu();
+    })
+};
+
+function menu() {       // after manager is added, this is the menu shown
     inquirer.prompt({
         type: 'list',
         name: 'menu',
@@ -104,43 +114,29 @@ function menu() {
         choices: ["Engineer", "Intern", "Finish Building Team"],
     }).then(response => {
         if (response.menu === "Engineer") {
-            addEngineer();
+            inquirer.prompt(engineerQuestions).then(response => {
+                const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub)
+                employees.push(engineer);
+                menu();
+            })
         } else if (response.menu === "Intern") {
-            addIntern();
+            inquirer.prompt(internQuestions).then(response => {
+                const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
+                employees.push(intern);
+                menu();
+            })
+        } else if (response.menu === "Finish Building Team") {
+            for (let i of employees) {
+                generateHTML(i);       // takes the array and generates an HTML card for each employee
+            }
+            endHTML();
         } else {
-            finishTeam();
+            console.log("menu() error");
         }
-    })
+    });
 };
-const addTeamMember = () => {
-    inquirer.prompt(managerQuestions).then(response => {
-        const manager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice)
-        employees.push(manager);
-        menu();
-    })
-};
-function addEngineer() {
-    inquirer.prompt(engineerQuestions).then(response => {
-        const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub)
-        employees.push(engineer);
-        menu();
-    })
-};
-function addIntern() {
-    inquirer.prompt(internQuestions).then(response => {
-        const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
-        employees.push(intern);
-        menu();
-    })
-};
-function finishTeam() {
-//    console.log(employees);
-    for (let i of employees) {
-        addToContainer(i);
-    }
-    completeFile();
-}
-function addToContainer(teamMember) {
+
+function generateHTML(teamMember) {
     return new Promise(function (resolve, reject) {
         const name = teamMember.getName();
         const role = teamMember.getRole();
@@ -191,7 +187,7 @@ function addToContainer(teamMember) {
                 </div>`
         }
         console.log("Team Member was added!");
-        fs.appendFile("./dist/projectTeamProfile.html", data, function(err) {
+        fs.appendFile("./dist/projectTeamProfile.html", data, function (err) {
             if (err) {
                 return reject(err);
             };
@@ -199,7 +195,8 @@ function addToContainer(teamMember) {
         });
     });
 }
-function completeFile() {
+
+function endHTML() {
     const finish = `</div>
     </body>
     </html>`;
