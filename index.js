@@ -85,11 +85,11 @@ function initHTML() {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>Example HTML</title>
+        <title>Team Profile</title>
     </head>
     <body>
-    <nav class="flex justify-center mx-auto py-10 bg-red-600 text-white text-5xl ">My Team</nav>
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:gird-cols-3 xl:grid-cols-4">
+    <nav class="flex justify-center mx-auto py-10 bg-green-700 text-white text-5xl ">My Team</nav>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     `;
     fs.writeFile("./dist/projectTeamProfile.html", html, function (err) {
         if (err) {
