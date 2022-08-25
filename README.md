@@ -2,16 +2,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ## Description
 
-### 🚧 Under development 🚧
-[kanban link](https://github.com/users/jroller33/projects/3)
-
 This is a Node.js CLI application that uses `inquirer` to receive input about employees and generate an HTML page that shows summaries for each person. There's unit tests (using `jest`) for each class. 
 
 ```
-User Story
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
 
 Acceptance Criteria
 ✅ GIVEN a command-line application that accepts user input
@@ -31,6 +24,7 @@ THEN that GitHub profile opens in a new tab
 ✅ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 ✅ WHEN I decide to finish building my team
 ✅ THEN I exit the application, and the HTML is generated
+
 ```
 ## Table of Contents
 - [Installation](#installation)

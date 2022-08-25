@@ -6,6 +6,5 @@ comments.txt
 testingIndex.js
 IGNORE
 .env
-
-
-
+.vs
+Debug
