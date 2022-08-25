@@ -147,12 +147,12 @@ function generateHTML(teamMember) {
             const officeNumber = teamMember.officeNumber;
             data = `
             <div class="justify-evenly">
-            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-blue-600 bg-cover px-19 text-white rounded-lg">${name}<br/>
+            <div class="block p-6 rounded-lg shadow-2xl shadow-green-500/50 bg-white max-w-sm">
+                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-slate-500 bg-cover px-19 text-white rounded-lg">${name}<br/>
                 ${role}</h5>
                         <ul class="text-gray-700 text-base mb-4">
+                        <li>Email: <a href="mailto:${email}">${email}</a></li>
                         <li>ID # ${id}</li>
-                        <li>Email: ${email}</li>
                         <li>Office Number: ${officeNumber}</li>
                         </ul>
                     </div>
@@ -161,13 +161,13 @@ function generateHTML(teamMember) {
             const gitHub = teamMember.github;
             data = `
             <div class="justify-evenly">
-            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-blue-600 bg-cover px-19 text-white rounded-lg">${name}<br/>
+            <div class="block p-6 rounded-lg shadow-2xl shadow-green-500/50 bg-white max-w-sm">
+                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-slate-500 bg-cover px-19 text-white rounded-lg">${name}<br/>
                 ${role}</h5>
                         <ul class="text-gray-700 text-base mb-4">
                         <li>ID # ${id}</li>
-                        <li>Email: ${email}</li>
-                        <li>GitHub: ${gitHub}</li>
+                        <li><a href="mailto:${email}">Email: ${email}</a></li>
+                        <li>GitHub: <a href="https://github.com/${gitHub}">${gitHub}</a></li>
                         </ul>
                     </div>
                 </div>`
@@ -175,18 +175,18 @@ function generateHTML(teamMember) {
             const school = teamMember.school;
             data = `
             <div class="justify-evenly">
-            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-blue-600 bg-cover px-19 text-white rounded-lg">${name}<br/>
+            <div class="block p-6 rounded-lg shadow-2xl shadow-green-500/50 bg-white max-w-sm">
+                <h5 class="text-xl text-center leading-tight font-medium mb-2 bg-slate-500 bg-cover px-19 text-white rounded-lg">${name}<br/>
                 ${role}</h5>
                         <ul class="text-gray-700 text-base mb-4">
                         <li>ID # ${id}</li>
-                        <li>Email: ${email}</li>
+                        <li><a href="mailto:${email}">Email: ${email}</a></li>
                         <li>School: ${school}</li>
                         </ul>
                     </div>
                 </div>`
         }
-        console.log("Team Member was added!");
+        console.log(`${role} was added!`);
         fs.appendFile("./dist/projectTeamProfile.html", data, function (err) {
             if (err) {
                 return reject(err);
@@ -197,6 +197,7 @@ function generateHTML(teamMember) {
 };
 
 function endHTML() {
+    console.log('endHTML() called.')
     const finish = `</div>
     </body>
     </html>`;
