@@ -1,6 +1,0 @@
-*
-*/
-!.gitignore
-
-# this folder is where the HTML and CSS output will be created
-# so its contents don't need to be tracked by git, but the folder itself does.

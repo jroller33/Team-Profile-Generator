@@ -52,7 +52,7 @@ You can find a video demonstration at the following link: <br/>
 You can contribute at https://github.com/jroller33/Team-Profile-Generator
 
 ## Tests
-Tests for this application are located in /\_tests\_/<br/>
+Tests for this application are located in `_tests_`<br/>
 ## License
 This project is licensed under the MIT License. <br/>
 https://www.mit.edu/~amini/LICENSE.md

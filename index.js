@@ -167,7 +167,7 @@ function generateHTML(teamMember) {
                         <ul class="text-gray-700 text-base mb-4">
                         <li>ID # ${id}</li>
                         <li><a href="mailto:${email}">Email: ${email}</a></li>
-                        <li>GitHub: <a href="https://github.com/${gitHub}">${gitHub}</a></li>
+                        <li>GitHub: <a href="https://github.com/${gitHub}" target="_blank">${gitHub}</a></li>
                         </ul>
                     </div>
                 </div>`
