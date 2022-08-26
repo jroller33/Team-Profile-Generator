@@ -23,6 +23,12 @@ This is a Node.js CLI application that uses `inquirer` to receive input about em
 After you start the app, you will be asked a series of questions about the employees on your team. First you'll be asked for the manager's info. Then you'll be given a list of options to add additional employees. You can add as many employees as you need and they will be dynamically added to the HTML file. You'll be prompted to enter each employee's information. Once you're done entering all the employees select "Finish Team" and the HTML will be created in ./dist/
 ## Screenshots
 
+### Sample Team Profile:
+![Sample Team Profile](./samples/screenshot1.png)
+![Sample Team Profile](./samples/screenshot2.png)
+### All tests passed:
+![Sample Team Profile](./samples/screenshot3.png)
+
 #
 ## Video Demo Link
 You can find a video demonstration at the following link: <br/>
