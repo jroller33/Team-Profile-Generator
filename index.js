@@ -197,7 +197,7 @@ function generateHTML(teamMember) {
 };
 
 function endHTML() {
-    console.log('endHTML() called.')
+    // console.log('endHTML() called.')
     const finish = `</div>
     </body>
     </html>`;
