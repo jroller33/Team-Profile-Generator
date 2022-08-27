@@ -34,13 +34,15 @@ After you start the app, you will be asked a series of questions about the emplo
 
 #
 ## Video Demo Link
-You can find a video demonstration at the following link: <br/>
+You can find a video demonstration [here](https://www.youtube.com/watch?v=qq29IX1Ghf8) 
+<br/>
 
 ## Contribution
-You can contribute at https://github.com/jroller33/Team-Profile-Generator
+You can contribute [here](https://github.com/jroller33/Team-Profile-Generator)
 
 ## Tests
 Tests for this application are located in `_tests_`<br/>
+
 ## License
 This project is licensed under the MIT License. <br/>
 https://www.mit.edu/~amini/LICENSE.md
