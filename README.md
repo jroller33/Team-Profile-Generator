@@ -25,7 +25,10 @@ After you start the app, you will be asked a series of questions about the emplo
 
 ### Sample Team Profile:
 ![Sample Team Profile](./samples/screenshot1.png)
+
+### User Input:
 ![Sample Team Profile](./samples/screenshot2.png)
+
 ### All tests passed:
 ![Sample Team Profile](./samples/screenshot3.png)
 
